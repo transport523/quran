@@ -57,7 +57,7 @@
 <link rel="preconnect" href="https://www.google-analytics.com/" >
 
 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@docsearch/css@3"> -->
     <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -140,7 +140,9 @@
         <a class="link-secondary" href="#">Subscribe</a>
       </div> -->
       <div class="col-12 text-center">
-        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="/">QuranKnow</a>
+        
+          <a class="blog-header-logo text-body-emphasis text-decoration-none" href="/da/">QuranKnow</a>
+        
       </div>
       <!-- <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="link-secondary" href="#" aria-label="Search">
@@ -2306,6 +2308,10 @@
 
           var newUrl = `/${urlArr[1]}/` + value + '/';
 
+          if (value === '1') {
+            newUrl = `/${urlArr[1]}/`;
+          }
+
           location.href = newUrl;
       });
   });
@@ -2313,11 +2319,10 @@
   document.querySelector("select[name=lang]").addEventListener('change', function() {
     var value = this.value;
 
-    var newUrl = `www.quranknow.com/${value}/1`;
     var urlArr = window.location.pathname.split("/");
 
     if (value !== urlArr[1]) {
-      location.href = "https://" + newUrl;
+      location.href = `/${value}/`;
     }
   });
 
