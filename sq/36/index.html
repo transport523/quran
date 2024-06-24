@@ -1450,6 +1450,9 @@
     var value = this.value;
 
     var urlArr = window.location.pathname.split("/");
+    if (urlArr[1] === '') {
+      urlArr[1] = 'en';
+    }
 
     if (value !== urlArr[1]) {
       location.href = `/${value}/`;
