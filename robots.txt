@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://quranknow.com/sitemap.xml
+Sitemap: https://www.quranknow.com/sitemap.xml
