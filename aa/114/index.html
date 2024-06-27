@@ -196,7 +196,7 @@
           
           <div class="input-group justify-content-center">
             <div class="text-center mt-3">
-              <select class="form-select" style="width: 15rem;">
+              <select class="form-select" style="width: 15rem;" onchange="updateUrl(this)">
                 
                   
                   <option value="1">1.The Opening</option>
@@ -689,7 +689,7 @@
           </div>
           <div class="input-group justify-content-center">
             <div class="text-center mt-3">
-              <select class="form-select" style="width: 15rem;">
+              <select class="form-select" style="width: 15rem;" onchange="updateUrl(this)">
                 
                   
                   <option value="1">1.The Opening</option>
@@ -1167,7 +1167,7 @@
   <div class="input-group justify-content-center">
     <div class="text-center mt-3">
 
-      <select class="form-select" style="width: 15rem;" name="lang">
+      <select class="form-select" style="width: 15rem;" name="lang" onchange="updateLang(this)">
         <option value="aa" selected>Afar</option>
         <option value="ace" >Acèh</option>
         <option value="af" >Afrikaans</option>
@@ -1271,39 +1271,37 @@
 </footer>
 <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  var selectAll = document.querySelectorAll("body > main select");
 
-  selectAll.forEach(function(selectBox) {
-      selectBox.addEventListener('change', function() {
-          var value = this.value;
-          var urlArr = window.location.pathname.split("/");
+  function updateUrl(selectBox) {
+    var value = selectBox.value;
+    var urlArr = window.location.pathname.split("/");
 
-          if (urlArr[1] === '') {
-            urlArr[1] = 'en'
-          }
+    if (!urlArr[1]) {
+      urlArr[1] = 'en'
+    }
 
-          var newUrl = `/${urlArr[1]}/` + value + '/';
+    var newUrl = `/${urlArr[1]}/` + value + '/';
 
-          if (value === '1') {
-            newUrl = `/${urlArr[1]}/`;
-          }
+    if (value === '1') {
+      newUrl = `/${urlArr[1]}/`;
+    }
 
-          location.href = newUrl;
-      });
-  });
+    location.href = newUrl;
+  }
 
-  document.querySelector("select[name=lang]").addEventListener('change', function() {
-    var value = this.value;
+  function updateLang(selectBox) {
+    var value = selectBox.value;
 
     var urlArr = window.location.pathname.split("/");
-    if (urlArr[1] === '') {
+    if (!urlArr[1]) {
       urlArr[1] = 'en';
     }
 
     if (value !== urlArr[1]) {
       location.href = `/${value}/`;
     }
-  });
+  }
+
 
 </script>
 
